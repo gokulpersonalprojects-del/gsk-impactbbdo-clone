@@ -273,6 +273,22 @@ const initInteractionEngine = () => {
         );
       }
 
+      // Trigger GSAP stagger reveals if navigating to a Case Study page!
+      if (targetSectionId.startsWith('case-') && typeof gsap !== 'undefined') {
+        const sect = `#section-${targetSectionId}`;
+        // Reset properties first to prevent layout jumping
+        gsap.set(`${sect} .about-back-btn, ${sect} .about-hero-title h2, ${sect} .about-hero-title h3`, { opacity: 0, y: 30 });
+        gsap.set(`${sect} .case-metadata-grid .meta-item`, { opacity: 0, y: 20 });
+        gsap.set(`${sect} .case-banner-wrapper`, { opacity: 0, scale: 0.98 });
+        gsap.set(`${sect} .case-section-row`, { opacity: 0, y: 30 });
+
+        // Trigger staggered page cascade reveals
+        gsap.to(`${sect} .about-back-btn, ${sect} .about-hero-title h2, ${sect} .about-hero-title h3`, { opacity: 1, y: 0, duration: 1.0, stagger: 0.1, ease: "power3.out", delay: 0.1 });
+        gsap.to(`${sect} .case-metadata-grid .meta-item`, { opacity: 1, y: 0, duration: 0.8, stagger: 0.08, ease: "power3.out", delay: 0.2 });
+        gsap.to(`${sect} .case-banner-wrapper`, { opacity: 1, scale: 1, duration: 1.2, ease: "power3.out", delay: 0.4 });
+        gsap.to(`${sect} .case-section-row`, { opacity: 1, y: 0, duration: 1.0, stagger: 0.15, ease: "power3.out", delay: 0.5 });
+      }
+
       // 3. Complete the sweep transition, sliding the red wipe away
       transitionWipe.classList.remove('animating');
       transitionWipe.classList.add('slide-out');
