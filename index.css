@@ -3278,6 +3278,24 @@ body {
   }
 }
 
+/* Inline case study mockup image styling */
+.case-inline-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(250, 250, 250, 0.08);
+  margin-top: 1.5rem;
+}
+
+.case-inline-image {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
 
 
 
