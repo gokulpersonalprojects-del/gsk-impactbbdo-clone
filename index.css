@@ -654,13 +654,13 @@ body {
 
 .bottom-left-text,
 .bottom-right-text {
-  font-size: clamp(2.125rem, 6vw, 5.125rem); /* Proportional 6px smaller (40px->34px, 88px->82px) */
-  font-weight: 700;
+  font-size: clamp(1.75rem, 4.5vw, 4.75rem); /* Proportional 12px smaller than original (40px->28px, 88px->76px) */
+  font-weight: 300; /* Thinner elegant typography */
   color: var(--color-white);
   position: absolute;
   z-index: 10;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em; /* Slightly adjusted tracking for thinner weights */
   user-select: none;
   line-height: 1;
 }
