@@ -1,3 +1,6 @@
+# Large local video files
+pill_video_*.mp4
+
 # Dependencies
 node_modules/
 .pnpm-store/

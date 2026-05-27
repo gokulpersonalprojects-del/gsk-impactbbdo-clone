@@ -539,7 +539,7 @@ body {
 .mask-svg-mobile {
   width: 100%;
   height: 100%;
-  object-fit: fill; /* Allows the SVG coordinates to stretch exactly to fit full screen */
+  object-fit: cover; /* Proportional scaling without distortion */
 }
 
 .mask-svg {
@@ -654,7 +654,7 @@ body {
 
 .bottom-left-text,
 .bottom-right-text {
-  font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+  font-size: clamp(2.125rem, 6vw, 5.125rem); /* Proportional 6px smaller (40px->34px, 88px->82px) */
   font-weight: 700;
   color: var(--color-white);
   position: absolute;
@@ -792,21 +792,21 @@ body {
 /* We Are Section Fold */
 .we-are-section {
   background-color: var(--color-red);
-  padding: clamp(3rem, 6vw, 7rem) clamp(1.5rem, 5vw, 6rem);
+  padding: clamp(3rem, 5vw, 6rem) clamp(1.5rem, 4vw, 5rem);
   color: var(--color-white);
   overflow: hidden;
   position: relative;
   z-index: 10;
 }
 
-/* Single-column full-bleed container */
+/* Two-column container */
 .we-are-container {
-  max-width: 1600px;
+  max-width: 1440px;
   width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(2rem, 4vw, 5rem);
+  gap: clamp(2rem, 4vw, 4rem);
   align-items: flex-start;
   transform: translate3d(100%, 0, 0);
   will-change: transform;
@@ -817,15 +817,23 @@ body {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+    gap: clamp(2rem, 4vw, 5rem);
   }
 }
 
-/* Full-width left block */
+/* Left block — constrained so right has room */
 .we-are-left {
   width: 100%;
 }
 
-/* ---- Giant Editorial Title ---- */
+@media (min-width: 1024px) {
+  .we-are-left {
+    flex: 0 0 55%;
+    max-width: 55%;
+  }
+}
+
+/* ---- Editorial Title — Smaller for balanced two-col layout ---- */
 .we-are-title {
   font-family: 'Outfit', sans-serif;
   font-weight: 900;
@@ -833,19 +841,21 @@ body {
   letter-spacing: -0.04em;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 0.15em;
   line-height: 0.92;
   user-select: none;
-  font-size: clamp(72px, 13.5vw, 200px);
+  font-size: clamp(48px, 6.5vw, 96px);
   margin: 0;
 }
 
+/* Each row */
 .title-row {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.18em;
+  gap: 0.2em;
   line-height: 1;
+  padding: 0.12em 0;
 }
 
 /* Individual word spans */
@@ -864,6 +874,28 @@ body {
   .title-word--outline {
     -webkit-text-stroke: 3px var(--color-white);
   }
+}
+
+/* Wrapper to stack label above pill */
+.pill-label-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.06em;
+  vertical-align: middle;
+}
+
+/* Label text sitting above the pill */
+.pill-above-label {
+  font-size: 0.16em;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  line-height: 1;
+  padding-left: 0.4em;
+  white-space: nowrap;
 }
 
 /* ---- Looping Video Badges ---- */
@@ -1002,42 +1034,42 @@ body {
 .we-are-description {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  font-size: clamp(14px, 1.4vw, 20px);
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+  font-size: clamp(15px, 1.6vw, 22px);
   font-weight: 300;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.75);
-  max-width: 560px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.85);
+  max-width: 520px;
 }
 
 .we-are-description p {
   margin: 0;
+  padding-bottom: clamp(0.5rem, 1vw, 0.75rem);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Right-side column */
+.we-are-description p:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Right-side column — bigger, more presence */
 .we-are-right {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   width: 100%;
-  gap: 2rem;
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
 }
 
 @media (min-width: 1024px) {
   .we-are-right {
-    min-width: 340px;
-    max-width: 400px;
-    padding-left: 2rem;
-    padding-top: 1rem;
-    flex-shrink: 0;
-  }
-}
-
-@media (min-width: 1280px) {
-  .we-are-right {
-    min-width: 420px;
-    max-width: 460px;
+    flex: 1 1 auto;
+    min-width: 360px;
+    padding-left: clamp(2rem, 3vw, 4rem);
+    padding-top: 0.5rem;
+    border-left: 1px solid rgba(255,255,255,0.2);
   }
 }
 
