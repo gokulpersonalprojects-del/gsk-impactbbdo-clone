@@ -1,0 +1,14 @@
+{
+  "name": "gsk-impactbbdo-clone",
+  "version": "1.0.0",
+  "description": "High-fidelity clone of Impact BBDO with custom GSK preloader",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
