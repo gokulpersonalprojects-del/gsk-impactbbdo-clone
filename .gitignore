@@ -1,6 +1,9 @@
 # Large local video files
 pill_video_*.mp4
 
+# Local original image backups
+*original_backup.jpg
+
 # Dependencies
 node_modules/
 .pnpm-store/
