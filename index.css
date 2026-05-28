@@ -2125,6 +2125,14 @@ body {
     grid-column: span 2 !important;
     max-width: 550px !important;
   }
+
+  /* Responsive Hero Text spacing for Tablets */
+  .g-mask-a {
+    transform: translate(130px, 0) !important;
+  }
+  .g-mask-t {
+    transform: translate(-130px, 0) !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -2158,6 +2166,16 @@ body {
   .info-container {
     padding-top: 1.5rem !important;
     gap: 1.5rem !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  /* Responsive Hero Text spacing for Extremely Narrow Mobile Devices */
+  .g-mask-mobile-a {
+    transform: translate(14px, 0) !important;
+  }
+  .g-mask-mobile-t {
+    transform: translate(-14px, 0) !important;
   }
 }
 
