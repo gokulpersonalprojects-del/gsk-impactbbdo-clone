@@ -782,6 +782,21 @@ body {
     height: 100vh !important;
     height: 100dvh !important;
   }
+
+  /* Make bottom corner texts (CREATE and DIFFERENT) thicker and bigger on mobile devices */
+  .bottom-left-text,
+  .bottom-right-text {
+    font-size: clamp(1.4rem, 6vw, 2.2rem) !important; /* Significantly bigger text on mobile */
+    font-weight: 800 !important; /* Thicker bold font-weight */
+    letter-spacing: 0.05em !important; /* Elegant modern spacing */
+    bottom: clamp(1.5rem, 6vw, 3rem) !important; /* Adjusted positioning for bottom bar clearance */
+  }
+  .bottom-left-text {
+    left: clamp(1.5rem, 6vw, 3rem) !important;
+  }
+  .bottom-right-text {
+    right: clamp(1.5rem, 6vw, 3rem) !important;
+  }
 }
 
 /* ==========================================================================
