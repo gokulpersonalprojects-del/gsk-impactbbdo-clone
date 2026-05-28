@@ -406,7 +406,7 @@ const initInteractionEngine = () => {
     }
   };
 
-  // Bind click handlers to inline video pill tags, portfolio card hover overlays, and video editing cards
+  // Bind click handlers to inline video pill tags, portfolio card hover overlays, and trailer edit cards
   const interactiveVideoTriggers = document.querySelectorAll('.video-badge-pill, .card-video-hover, .video-work-card, .open-modal');
   
   interactiveVideoTriggers.forEach(trigger => {
