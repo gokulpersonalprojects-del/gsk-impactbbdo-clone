@@ -251,7 +251,7 @@
         <a href='#case-netflix' data-section='case-netflix' class='card-work main-card fade-up'> 
             <div class='card-work-container'>
                 <div class='image-container'>
-                    <img src='netflix_merch.jpg' alt='Netflix Shopping & Fan Community'>
+                    <img src='netflix_screen_3.png' alt='Netflix Shopping & Fan Community'>
                 </div>
                 <div class='card-work-text-content'>
                     <h2>Netflix Shopping & Fan Community</h2>
@@ -965,74 +965,366 @@
           </div>
         </div>
 
-        <!-- Giant Full-Bleed Mockup Banner -->
-        <div class="case-banner-wrapper fade-up">
-          <img src="netflix_merch.jpg" alt="Netflix Shopping Case Study Banner" class="case-banner-image">
-          <div class="case-banner-overlay"></div>
+        <!-- Dynamic Mode Switcher (Pill Style) -->
+        <div class="case-mode-switcher fade-up">
+          <div class="switcher-bg-slider"></div>
+          <button class="case-mode-btn active" data-mode="tour">🚀 INTERACTIVE TOUR</button>
+          <button class="case-mode-btn" data-mode="deep">📖 DEEP DIVE / DETAILS</button>
         </div>
 
-        <!-- Two-Column Editorial Details -->
-        <div class="case-content-grid">
+        <!-- Case Study Content Panes -->
+        <div class="case-panes-wrapper">
           
-          <div class="case-section-row fade-up">
-            <div class="case-col-left">
-              <h2>01 / THE BACKSTORY</h2>
-            </div>
-            <div class="case-col-right">
-              <p class="lead-text">It all started with a simple idea: What if Netflix fans could buy exclusive merchandise from their favorite shows while watching? And why not make it even more engaging by adding a community space where fans could share reviews and interact with other fans and brands?</p>
-              <p>I pitched the idea, and over the course of a few weeks, I designed and built a prototype of the feature. After running several A/B tests to gather feedback, it became clear — this idea could truly elevate the Netflix experience.</p>
-              <p>Though the feature isn't live yet, the tests showed promising results, with users loving the concept of seamless shopping and engaging with the Netflix community.</p>
-            </div>
-          </div>
-
-          <div class="case-section-row fade-up">
-            <div class="case-col-left">
-              <h2>02 / THE CHALLENGE</h2>
-            </div>
-            <div class="case-col-right">
-              <p>Being a personal project, there were no extra resources — no free bandwidth in design or engineering since we were already swamped with regular work. But we didn’t let that stop us.</p>
-              <p>We worked on the project whenever we could — after hours, on weekends, and even during hackathons. The passion to bring this idea to life kept us going, and after several weeks of design, prototyping, and A/B testing, the concept was finally taking shape.</p>
+          <!-- ==========================================
+               PANE 1: INTERACTIVE TOUR (DEFAULT)
+               ========================================== -->
+          <div class="case-pane case-pane-tour active" id="netflix-pane-tour">
+            
+            <!-- Quick Intro -->
+            <div class="tour-intro-block fade-up">
+              <p class="lead-text">What if Netflix fans could buy exclusive merchandise from their favorite shows directly inside the video stream? We built a prototype, ran user testing, and conceptualized an in-app marketplace that turns viewer passion into instant shopping experiences.</p>
               <div class="highlight-quote">
                 "Bridging Entertainment and Shopping: A Seamless Experience for Fans to Connect, Shop, and Share."
               </div>
             </div>
-          </div>
 
-          <div class="case-section-row fade-up">
-            <div class="case-col-left">
-              <h2>03 / CORE FEATURES</h2>
-            </div>
-            <div class="case-col-right">
-              <div class="features-block-grid">
-                <div class="feature-card">
-                  <h4>In-App Marketplace</h4>
-                  <p>Integrated a seamless shopping experience, allowing users to browse and purchase merchandise related to the shows they’re watching.</p>
+            <!-- Widget 1: Interactive Hotspot App Mockup Explorer -->
+            <div class="widget-section fade-up">
+              <div class="widget-header">
+                <h3>01 / HOTSPOT DEVICE EXPLORER</h3>
+                <p>Click on any glowing hotspot in the phone screen to explore the integrated E-Shopping experience.</p>
+              </div>
+              
+              <div class="hotspot-explorer-grid">
+                <!-- Device Column -->
+                <div class="explorer-device-col">
+                  <!-- Live Figma vs Hotspot Switcher Tabs -->
+                  <div class="device-control-tabs">
+                    <button class="device-tab-btn active" data-device-tab="explorer">📱 EXPLORER</button>
+                    <button class="device-tab-btn" data-device-tab="figma">🎮 LIVE PROTOTYPE</button>
+                  </div>
+                  
+                  <div class="device-phone-shell">
+                    <div class="device-notch"></div>
+                    <div class="device-screen-screen">
+                      
+                      <!-- Hotspot Explorer Content -->
+                      <div class="device-explorer-content active">
+                        <!-- High Fidelity Screen Image (swapped dynamically via JS) -->
+                        <img class="explorer-phone-screen-img" src="netflix_screen_1.png" alt="Netflix Case Study Screen">
+                        
+                        <!-- Hotspot 1: Floating In-Video Cart -->
+                        <div class="hotspot-dot active" data-hotspot="1" style="top: 25px; right: 25px;" title="Floating In-Video Cart">
+                          <div class="hotspot-pulse"></div>
+                        </div>
+                        
+                        <!-- Hotspot 2: In-Scene Tagged Costume -->
+                        <div class="hotspot-dot" data-hotspot="2" style="top: 120px; left: 140px;" title="In-Scene Tagged Products">
+                          <div class="hotspot-pulse"></div>
+                        </div>
+                        
+                        <!-- Hotspot 3: Profile Checkout -->
+                        <div class="hotspot-dot" data-hotspot="3" style="bottom: 75px; right: 25px;" title="Biometric One-Click Purchase">
+                          <div class="hotspot-pulse"></div>
+                        </div>
+                        
+                        <!-- Hotspot 4: Fan Forums / Discussion -->
+                        <div class="hotspot-dot" data-hotspot="4" style="bottom: 25px; left: 63%;" title="Fan & Community Hub">
+                          <div class="hotspot-pulse"></div>
+                        </div>
+                      </div>
+                      
+                      <!-- Live Figma Embed Pane (lazy loaded via JS) -->
+                      <div class="device-figma-pane">
+                        <iframe class="device-figma-iframe" src="" allowfullscreen sandbox="allow-same-origin allow-scripts allow-pointer-lock allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
+                        <!-- Loading spinner -->
+                        <div class="figma-loading-overlay">
+                          <div class="figma-spinner"></div>
+                          <span>Connecting to Figma...</span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
                 </div>
-                <div class="feature-card">
-                  <h4>Fan Interaction Space</h4>
-                  <p>Developed a community platform where users could share reviews, join discussions, and connect over their favorite shows and products.</p>
-                </div>
-                <div class="feature-card">
-                  <h4>Exclusive Merch Drops</h4>
-                  <p>Added the ability to release limited-edition items and exclusive show merchandise, creating excitement among fans.</p>
-                </div>
-                <div class="feature-card">
-                  <h4>Show-Specific Links</h4>
-                  <p>Enabled clickable links within shows to allow users to purchase products directly from scenes they’re watching.</p>
+                
+                <!-- Details Card Column -->
+                <div class="explorer-details-col">
+                  <div class="hotspot-details-card active" data-card="default">
+                    <h4>Interactive UX Interface</h4>
+                    <p class="highlight-tag">SELECT A GLOWING NODE TO START</p>
+                    <p>Fusing video streaming with instant e-commerce requires highly contextual cues. We designed a lightweight design layer that fits natively into Netflix’s design system, adding interactive nodes that reveal product stories behind scenes.</p>
+                    <ul class="spec-list">
+                      <li><span>Frictionless UX</span> Less screens, more flow</li>
+                      <li><span>Visual Hierarchy</span> Doesn't distract from watching</li>
+                      <li><span>Design Consistency</span> Native look and feel</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="hotspot-details-card" data-card="1">
+                    <h4>01 / Floating In-Video Cart</h4>
+                    <p class="highlight-tag">STREAM & BROWSE SEAMLESSLY</p>
+                    <p>A minimal, floating shopping bag icon slides in when shoppable items are identified in the current playback scene. Viewers can tap it to reveal an in-video overlay of featured merch without disrupting their viewing experience.</p>
+                    <div class="metric-mini-row">
+                      <div class="metric-mini"><span>92%</span><span>Ease of Discovery</span></div>
+                      <div class="metric-mini"><span>0</span><span>Video Pauses Required</span></div>
+                    </div>
+                  </div>
+                  
+                  <div class="hotspot-details-card" data-card="2">
+                    <h4>02 / In-Scene Tagged Products</h4>
+                    <p class="highlight-tag">CONTEXTUAL CLOTHING & PROPS</p>
+                    <p>Costumes, accessories, and background props worn by characters in specific scenes are dynamically tagged with invisible touch targets. Hovering or tapping a tagged item instantly highlights the item and opens its detail card in the shopping drawer.</p>
+                    <div class="metric-mini-row">
+                      <div class="metric-mini"><span>+85%</span><span>Product Interest</span></div>
+                      <div class="metric-mini"><span>Direct</span><span>Visual Linking</span></div>
+                    </div>
+                  </div>
+                  
+                  <div class="hotspot-details-card" data-card="3">
+                    <h4>03 / Biometric One-Click Purchase</h4>
+                    <p class="highlight-tag">SEAMLESS PAYMENTS & PRE-SELECTS</p>
+                    <p>We designed the drawer to pull user profile data instantly. It pre-selects correct clothing sizes based on user preferences and uses the Netflix subscription billing system on file for a seamless Touch ID/Double-Click checkout in under 3 seconds.</p>
+                    <div class="metric-mini-row">
+                      <div class="metric-mini"><span>-60%</span><span>Checkout Time</span></div>
+                      <div class="metric-mini"><span>SSO</span><span>Netflix Subscription billing</span></div>
+                    </div>
+                  </div>
+                  
+                  <div class="hotspot-details-card" data-card="4">
+                    <h4>04 / Fan & Community Hub</h4>
+                    <p class="highlight-tag">SHARED DISCUSSION & REVIEWS</p>
+                    <p>A dedicated social forum built natively into the show’s grid structure where fans share photos of their merchandise, discuss styling, review product quality, and interact with other community members over exclusive limited-edition drops.</p>
+                    <div class="metric-mini-row">
+                      <div class="metric-mini"><span>+28%</span><span>In-App Engagement</span></div>
+                      <div class="metric-mini"><span>User</span><span>Generated Content</span></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <!-- Widget 2: Interactive A/B Testing Metric Comparison -->
+            <div class="widget-section fade-up">
+              <div class="widget-header">
+                <h3>02 / A/B TESTING INTEGRATION</h3>
+                <p>Use the selector to compare the traditional streaming workflow with our interactive E-Shopping variant.</p>
+              </div>
+              
+              <div class="ab-comparison-widget">
+                <div class="ab-toggle-bar">
+                  <button class="ab-toggle-btn active" data-ab="control">A / STANDARD STREAMING</button>
+                  <button class="ab-toggle-btn" data-ab="variant">B / INTEGRATED E-SHOPPING</button>
+                </div>
+                
+                <div class="ab-cards-container">
+                  <!-- Control Card -->
+                  <div class="ab-comparison-card active" id="ab-card-control">
+                    <div class="ab-badge control">CONTROL STATE</div>
+                    <h4>Isolated Entertainment</h4>
+                    <p class="ab-desc">The traditional workflow features zero interaction between streaming content and merchandise. When a viewer falls in love with an outfit on-screen, they face high friction:</p>
+                    <div class="friction-flow">
+                      <div class="friction-step"><span>1</span><span>Exit Netflix App</span></div>
+                      <div class="friction-step"><span>2</span><span>Search Browser manually</span></div>
+                      <div class="friction-step"><span>3</span><span>Verify 3rd-party sellers</span></div>
+                      <div class="friction-step"><span>4</span><span>Create separate account</span></div>
+                    </div>
+                    <div class="ab-metrics-grid">
+                      <div class="ab-metric-item negative">
+                        <span class="ab-metric-num">1.5%</span>
+                        <span class="ab-metric-lbl">Merchandise Sales Conversion</span>
+                      </div>
+                      <div class="ab-metric-item negative">
+                        <span class="ab-metric-num">78%</span>
+                        <span class="ab-metric-lbl">Purchase Funnel Dropoff Rate</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Variant Card -->
+                  <div class="ab-comparison-card" id="ab-card-variant">
+                    <div class="ab-badge variant">VARIANT STATE</div>
+                    <h4>Unified Fandom Experience</h4>
+                    <p class="ab-desc">Our proposed variant integrates shopping flows directly into the stream, using context-aware features and community-driven verification. Users discover, select, and checkout in a single continuous tab:</p>
+                    <div class="friction-flow">
+                      <div class="friction-step positive"><span>1</span><span>Spot tagged product</span></div>
+                      <div class="friction-step positive"><span>2</span><span>Slide out context drawer</span></div>
+                      <div class="friction-step positive"><span>3</span><span>Biometric Touch Checkout</span></div>
+                      <div class="friction-step positive"><span>4</span><span>Resume video instantly</span></div>
+                    </div>
+                    <div class="ab-metrics-grid">
+                      <div class="ab-metric-item positive">
+                        <span class="ab-metric-num">+42%</span>
+                        <span class="ab-metric-lbl">Conversion Increase</span>
+                      </div>
+                      <div class="ab-metric-item positive">
+                        <span class="ab-metric-num">94%</span>
+                        <span class="ab-metric-lbl">User Satisfaction Rating</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Widget 3: 3-Step Interactive Purchase Stepper -->
+            <div class="widget-section fade-up">
+              <div class="widget-header">
+                <h3>03 / FRICTIONLESS PURCHASE JOURNEY</h3>
+                <p>Click on the timeline steps to follow the interactive checkout sequence.</p>
+              </div>
+              
+              <div class="stepper-widget">
+                <!-- Timeline bar -->
+                <div class="stepper-timeline">
+                  <div class="stepper-line-progress"></div>
+                  <div class="step-node active" data-step="1">
+                    <span class="node-num">01</span>
+                    <span class="node-title">DISCOVER</span>
+                  </div>
+                  <div class="step-node" data-step="2">
+                    <span class="node-num">02</span>
+                    <span class="node-title">SELECT</span>
+                  </div>
+                  <div class="step-node" data-step="3">
+                    <span class="node-num">03</span>
+                    <span class="node-title">PURCHASE</span>
+                  </div>
+                </div>
+                
+                <!-- Step Display Cards -->
+                <div class="stepper-display-wrapper">
+                  <div class="step-display-card active" data-step-card="1">
+                    <div class="step-card-num">STEP 01</div>
+                    <h4>Dynamic Scene Detection</h4>
+                    <p>As you watch a show, advanced metadata markers automatically map costumes and accessories in the scene. A subtle glowing shopping badge overlays on Max’s Retro Jacket, capturing viewer interest at the peak moment of narrative engagement without disrupting screen visuals.</p>
+                  </div>
+                  
+                  <div class="step-display-card" data-step-card="2">
+                    <div class="step-card-num">STEP 02</div>
+                    <h4>In-Stream Contextual Drawer</h4>
+                    <p>Tapping the product badge pauses the video track behind a blurred glassmorphic curtain. A bottom drawer slides out gracefully, containing sizing info, color options, and detailed fan ratings. Size parameters are pre-filled automatically by checking the user's active streaming profile settings.</p>
+                  </div>
+                  
+                  <div class="step-display-card" data-step-card="3">
+                    <div class="step-card-num">STEP 03</div>
+                    <h4>One-Click Biometric Payment</h4>
+                    <p>Viewers verify shipping details and double-click to execute payment through their secure Netflix profile subscription billing. Order confirmation fires instantly, the drawer collapses back smoothly, and playback resumes right where it was paused in under 3 seconds total.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <div class="case-section-row fade-up">
-            <div class="case-col-left">
-              <h2>04 / REFLECTIONS</h2>
-            </div>
-            <div class="case-col-right">
-              <p>To be honest, it's challenging to step outside of your regular duties and create something purely out of passion. But I'm proud of what we've conceptualized in this project, and it’s been an exciting journey of creativity and innovation. While this is still a personal project for now, I’m thrilled about the possibilities.</p>
-            </div>
-          </div>
+          <!-- ==========================================
+               PANE 2: DEEP DIVE / ACCORDION DETAILS
+               ========================================== -->
+          <div class="case-pane case-pane-deep" id="netflix-pane-deep">
+            
+            <div class="accordions-container">
+              
+              <!-- Accordion 1: Backstory -->
+              <div class="case-accordion fade-up">
+                <div class="accordion-trigger">
+                  <span class="accordion-num">01 /</span>
+                  <h4>THE BACKSTORY & INSPIRATION</h4>
+                  <div class="accordion-icon"></div>
+                </div>
+                <div class="accordion-content">
+                  <div class="accordion-inner">
+                    <p class="lead-text">It all started with a simple question: Why does Netflix operate its online merchandise store as a separate, external site that is completely disconnected from the streaming app itself?</p>
+                    <p>Netflix fans have massive emotional connections to characters and stories. When they are watching a show and see an iconic item—like Max's jacket or a Stranger Things prop—they want it at that exact moment. By forcing users to close the app, go to their browser, search for the item, and register on a different site, Netflix loses over 95% of potential impulse purchases.</p>
+                    <p>I pitched this conceptual integration to close the gap. Over a few weeks, we designed a native mobile mockup, established consistent typography, and ran interactive user studies to build a high-fidelity prototype of the unified shopping experience.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Accordion 2: The Challenge -->
+              <div class="case-accordion fade-up">
+                <div class="accordion-trigger">
+                  <span class="accordion-num">02 /</span>
+                  <h4>THE CHALLENGE & TEAM STRATEGY</h4>
+                  <div class="accordion-icon"></div>
+                </div>
+                <div class="accordion-content">
+                  <div class="accordion-inner">
+                    <p>Being a passion-driven personal project, we had zero official resource allocation. Our engineering and design squads were fully swamped with regular client work. However, the sheer impact of the idea kept us inspired. We gathered after hours, met on weekends, and spent our team hackathons building and iterating the interactive prototype.</p>
+                    <p>The core strategic challenge was balance. We had to implement shopping and social community features without distracting viewers or making the streaming app feel like a cluttered department store catalog. By focusing on in-scene tag targets and floating overlay icons, we created a system that is invisible during standard playback and reveals itself only upon direct user interest.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Accordion 3: User Research & Persona mapping -->
+              <div class="case-accordion fade-up">
+                <div class="accordion-trigger">
+                  <span class="accordion-num">03 /</span>
+                  <h4>USER RESEARCH & A/B TESTING</h4>
+                  <div class="accordion-icon"></div>
+                </div>
+                <div class="accordion-content">
+                  <div class="accordion-inner">
+                    <p>Before putting pen to paper, we surveyed 150 active Netflix subscribers. The findings were staggering:</p>
+                    <ul class="stats-bullet-list">
+                      <li><strong>72% of fans</strong> expressed immediate interest in buying clothing or props seen on their favorite shows.</li>
+                      <li><strong>64% of users</strong> had no idea that Netflix even had an official external merchandise store (Netflix.shop).</li>
+                      <li><strong>88% of users</strong> stated they would drop off if they had to register a separate account or input billing details manually to buy merch.</li>
+                    </ul>
+                    <p>We built interactive high-fidelity A/B testing models. Test cohorts using our integrated in-stream design showed a dramatic reduction in search friction, vaulting product interest, and maintaining high platform session lengths since users read community reviews right inside the show’s dashboard.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Accordion 4: System Architecture -->
+              <div class="case-accordion fade-up">
+                <div class="accordion-trigger">
+                  <span class="accordion-num">04 /</span>
+                  <h4>CORE PRODUCT FEATURES</h4>
+                  <div class="accordion-icon"></div>
+                </div>
+                <div class="accordion-content">
+                  <div class="accordion-inner">
+                    <div class="features-block-grid">
+                      <div class="feature-card">
+                        <h4>In-App Marketplace</h4>
+                        <p>A native, sleek shop category integrated directly into the show detail page, beside "Episodes" and "Trailers", giving fans access to approved collections.</p>
+                      </div>
+                      <div class="feature-card">
+                        <h4>Fan Interaction Space</h4>
+                        <p>A community bulletin where viewers share photos of their merchandise, post design customizations, read reviews, and build shared hype.</p>
+                      </div>
+                      <div class="feature-card">
+                        <h4>Exclusive Merch Drops</h4>
+                        <p>Time-sensitive flash releases tied to live episode launches, utilizing in-app alerts and notifications to capture viewer excitement.</p>
+                      </div>
+                      <div class="feature-card">
+                        <h4>Show-Specific Links</h4>
+                        <p>Clickable hot-targets mapped dynamically within scenes, letting viewers purchase products directly from scenes they are watching.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Accordion 5: Reflections -->
+              <div class="case-accordion fade-up">
+                <div class="accordion-trigger">
+                  <span class="accordion-num">05 /</span>
+                  <h4>REFLECTIONS & IMPACT</h4>
+                  <div class="accordion-icon"></div>
+                </div>
+                <div class="accordion-content">
+                  <div class="accordion-inner">
+                    <p>Stepping outside our day-to-day client duties to build a pure passion project is always a massive challenge. However, this initiative demonstrated how visual editing, UX architecture, and engineering execution can combine to solve major business opportunities.</p>
+                    <p>Fusing entertainment and commerce is the future of media platforms. While this remains a conceptual prototype, the positive user feedback, high satisfaction metrics, and design consistency we achieved proved that frictionless e-shopping could truly elevate the Netflix ecosystem. It’s been an incredible journey of design strategy and creative innovation.</p>
+                  </div>
+                </div>
+              </div>
 
+            </div>
+            
+          </div>
+          
         </div>
       </div>
     </section>

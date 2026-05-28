@@ -726,12 +726,270 @@ const initInteractionEngine = () => {
     });
   }
 
+
+  // ==========================================================================
+  // 8. INTERACTIVE NETFLIX CASE STUDY EXPLORER SYSTEM
+  // ==========================================================================
+  const initNetflixCaseStudy = () => {
+    // A. Dual-Mode Switcher Logic
+    const modeButtons = document.querySelectorAll('.case-mode-btn');
+    const switcherSlider = document.querySelector('.switcher-bg-slider');
+    const panes = document.querySelectorAll('.case-pane');
+
+    const updateSwitcherSlider = (activeBtn) => {
+      if (switcherSlider && activeBtn) {
+        switcherSlider.style.width = `${activeBtn.offsetWidth}px`;
+        switcherSlider.style.left = `${activeBtn.offsetLeft}px`;
+      }
+    };
+
+    // Initial position on load
+    const activeModeBtn = document.querySelector('.case-mode-btn.active');
+    if (activeModeBtn) {
+      setTimeout(() => updateSwitcherSlider(activeModeBtn), 300);
+    }
+
+    modeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.getAttribute('data-mode');
+        
+        modeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updateSwitcherSlider(btn);
+
+        panes.forEach(pane => {
+          pane.classList.remove('active');
+          if (pane.id === `netflix-pane-${mode}`) {
+            pane.classList.add('active');
+            
+            // GSAP entrance transition for the activated pane
+            if (typeof gsap !== 'undefined') {
+              gsap.fromTo(pane, 
+                { opacity: 0, y: 15 },
+                { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
+              );
+            }
+          }
+        });
+        
+        // Refresh ScrollTrigger calculations since the page height has changed
+        if (typeof ScrollTrigger !== 'undefined') {
+          setTimeout(() => ScrollTrigger.refresh(), 200);
+        }
+      });
+    });
+
+    // B. Hotspot Device Explorer Logic
+    const hotspots = document.querySelectorAll('.hotspot-dot');
+    const detailCards = document.querySelectorAll('.hotspot-details-card');
+    const explorerScreenImg = document.querySelector('.explorer-phone-screen-img');
+
+    // Hotspot ID to high-fidelity design screen mapping
+    const screenMapping = {
+      '1': 'netflix_screen_1.png', // Stranger Things video player view
+      '2': 'netflix_screen_3.png', // Shoppable drawer open showing Max's Retro Jacket
+      '3': 'netflix_screen_5.png', // Biometric verification payment success screen
+      '4': 'netflix_screen_6.png'  // Social Fan Community Hub forum page
+    };
+
+    hotspots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const hotspotId = dot.getAttribute('data-hotspot');
+        
+        // Active dot class toggle
+        hotspots.forEach(h => h.classList.remove('active'));
+        dot.classList.add('active');
+
+        // Swap the background design screen of the phone mockup
+        if (explorerScreenImg && screenMapping[hotspotId]) {
+          explorerScreenImg.setAttribute('src', screenMapping[hotspotId]);
+          
+          // GSAP fade-in effect on screen swap for a smooth micro-animation
+          if (typeof gsap !== 'undefined') {
+            gsap.fromTo(explorerScreenImg,
+              { opacity: 0.8 },
+              { opacity: 1, duration: 0.4, ease: "power2.out" }
+            );
+          }
+        }
+
+        // Detail card swap animation
+        detailCards.forEach(card => {
+          card.classList.remove('active');
+          if (card.getAttribute('data-card') === hotspotId) {
+            card.classList.add('active');
+            
+            if (typeof gsap !== 'undefined') {
+              gsap.fromTo(card,
+                { opacity: 0, x: 15 },
+                { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }
+              );
+            }
+          }
+        });
+      });
+    });
+
+    // B.1 Live Figma Toggle Logic
+    const devicePhoneShell = document.querySelector('.device-phone-shell');
+    const deviceTabButtons = document.querySelectorAll('.device-tab-btn');
+    const explorerContent = document.querySelector('.device-explorer-content');
+    const figmaPane = document.querySelector('.device-figma-pane');
+    const figmaIframe = document.querySelector('.device-figma-iframe');
+    const figmaLoading = document.querySelector('.figma-loading-overlay');
+    const figmaUrl = "https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FvQCGfU9G9ETS97J9UpUUIb%2FDesign-Challenge_1%3Fpage-id%3D273%253A2118%26type%3Ddesign%26node-id%3D273-3120%26viewport%3D1461%252C278%252C0.18%26t%3Dx5CiHHv1QnEC62T8-1%26scaling%3Dscale-down%26starting-point-node-id%3D273%253A2151%26mode%3Ddesign&hide-ui=1";
+
+    deviceTabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.getAttribute('data-device-tab');
+        
+        deviceTabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        if (tab === 'figma') {
+          if (devicePhoneShell) devicePhoneShell.classList.add('figma-active');
+          if (explorerContent) explorerContent.classList.remove('active');
+          if (figmaPane) figmaPane.classList.add('active');
+
+          if (figmaIframe && !figmaIframe.getAttribute('src')) {
+            figmaIframe.setAttribute('src', figmaUrl);
+            
+            figmaIframe.addEventListener('load', () => {
+              if (figmaLoading) figmaLoading.classList.add('loaded');
+            });
+          }
+        } else {
+          if (devicePhoneShell) devicePhoneShell.classList.remove('figma-active');
+          if (explorerContent) explorerContent.classList.add('active');
+          if (figmaPane) figmaPane.classList.remove('active');
+        }
+      });
+    });
+
+    // C. A/B Testing Card Switcher Logic
+    const abButtons = document.querySelectorAll('.ab-toggle-btn');
+    const abCards = document.querySelectorAll('.ab-comparison-card');
+
+    abButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const abTarget = btn.getAttribute('data-ab');
+        
+        abButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        abCards.forEach(card => {
+          card.classList.remove('active');
+          if (card.id === `ab-card-${abTarget}`) {
+            card.classList.add('active');
+            
+            if (typeof gsap !== 'undefined') {
+              gsap.fromTo(card,
+                { opacity: 0, scale: 0.98, y: 10 },
+                { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "power3.out" }
+              );
+            }
+          }
+        });
+      });
+    });
+
+    // D. 3-Step Purchase Stepper Logic
+    const stepNodes = document.querySelectorAll('.step-node');
+    const stepCards = document.querySelectorAll('.step-display-card');
+    const timelineProgress = document.querySelector('.stepper-line-progress');
+
+    const updateTimelineProgress = (stepIndex) => {
+      if (timelineProgress) {
+        // Calculate progress percentage based on step index (1: 0%, 2: 50%, 3: 100%)
+        const percentage = ((stepIndex - 1) / (stepNodes.length - 1)) * 100;
+        timelineProgress.style.width = `${percentage}%`;
+      }
+    };
+
+    stepNodes.forEach((node, idx) => {
+      node.addEventListener('click', () => {
+        const stepNum = parseInt(node.getAttribute('data-step'));
+        
+        // Update nodes classes
+        stepNodes.forEach((n, nIdx) => {
+          n.classList.remove('active', 'completed');
+          if (nIdx + 1 < stepNum) {
+            n.classList.add('completed');
+          } else if (nIdx + 1 === stepNum) {
+            n.classList.add('active');
+          }
+        });
+
+        // Update progress bar
+        updateTimelineProgress(stepNum);
+
+        // Update step display details
+        stepCards.forEach(card => {
+          card.classList.remove('active');
+          if (parseInt(card.getAttribute('data-step-card')) === stepNum) {
+            card.classList.add('active');
+            
+            if (typeof gsap !== 'undefined') {
+              gsap.fromTo(card,
+                { opacity: 0, y: 10 },
+                { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }
+              );
+            }
+          }
+        });
+      });
+    });
+
+    // E. Deep Dive Accordions Toggle Logic
+    const accordions = document.querySelectorAll('.case-accordion');
+
+    accordions.forEach(accordion => {
+      const trigger = accordion.querySelector('.accordion-trigger');
+      const content = accordion.querySelector('.accordion-content');
+
+      if (trigger && content) {
+        trigger.addEventListener('click', () => {
+          const isOpen = accordion.classList.contains('open');
+          
+          // Collapse all first (accordion mode)
+          accordions.forEach(acc => {
+            acc.classList.remove('open');
+            const accContent = acc.querySelector('.accordion-content');
+            if (accContent) accContent.style.maxHeight = null;
+          });
+
+          // Toggle clicked
+          if (!isOpen) {
+            accordion.classList.add('open');
+            content.style.maxHeight = `${content.scrollHeight}px`;
+          } else {
+            accordion.classList.remove('open');
+            content.style.maxHeight = null;
+          }
+
+          // Dynamic ScrollTrigger refresh
+          if (typeof ScrollTrigger !== 'undefined') {
+            setTimeout(() => ScrollTrigger.refresh(), 500);
+          }
+        });
+      }
+    });
+
+    // Handle recalculation on resize for modes
+    window.addEventListener('resize', () => {
+      const activeBtn = document.querySelector('.case-mode-btn.active');
+      if (activeBtn) updateSwitcherSlider(activeBtn);
+    });
+  };
+
   // Run on resize
   window.addEventListener('resize', handleScrollEffects);
 
   // Initialize immediately on load/render
   handleScrollEffects();
+  initNetflixCaseStudy();
 };
+
 
 // Bulletproof interaction engine initialization
 if (document.readyState === 'loading') {
