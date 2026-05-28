@@ -1,5 +1,6 @@
 # Large local video files
 pill_video_*_original_backup.mp4
+downloaded_videos/
 
 # Local original image backups
 *original_backup.jpg
