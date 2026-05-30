@@ -1191,6 +1191,150 @@ const initInteractionEngine = () => {
   initCendrolCaseStudy();
 
   // ==========================================================================
+  // 9.5. INTERACTIVE CENDROL MOBILE B2B CRM CASE STUDY SYSTEM
+  // ==========================================================================
+  const initCendrolCRMCaseStudy = () => {
+    // A. CRM Mode Switcher (Tour ↔ Deep Dive)
+    const authModeSwitcher = document.getElementById('auth-mode-switcher');
+    if (!authModeSwitcher) return;
+
+    const modeButtons = authModeSwitcher.querySelectorAll('.case-mode-btn');
+    const slider = authModeSwitcher.querySelector('.auth-slider');
+    const tourPane = document.getElementById('auth-pane-tour');
+    const deepPane = document.getElementById('auth-pane-deep');
+
+    const updateSlider = (activeBtn) => {
+      if (slider && activeBtn) {
+        slider.style.width = `${activeBtn.offsetWidth}px`;
+        slider.style.left = `${activeBtn.offsetLeft}px`;
+      }
+    };
+
+    const activeBtn = authModeSwitcher.querySelector('.case-mode-btn.active');
+    if (activeBtn) setTimeout(() => updateSlider(activeBtn), 300);
+
+    modeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.getAttribute('data-mode');
+        modeButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        updateSlider(btn);
+
+        const showPane = mode === 'auth-tour' ? tourPane : deepPane;
+        const hidePane = mode === 'auth-tour' ? deepPane : tourPane;
+
+        if (hidePane) hidePane.classList.remove('active');
+        if (showPane) {
+          showPane.classList.add('active');
+          if (typeof gsap !== 'undefined') {
+            gsap.fromTo(showPane, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' });
+          }
+        }
+
+        if (typeof ScrollTrigger !== 'undefined') {
+          setTimeout(() => ScrollTrigger.refresh(), 200);
+        }
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      const activeBtn = authModeSwitcher.querySelector('.case-mode-btn.active');
+      if (activeBtn) updateSlider(activeBtn);
+    });
+
+    // B. Simulator Interactivity (Tabs Switching)
+    const crmTabs = document.querySelectorAll('.crm-tab-btn');
+    const crmContents = document.querySelectorAll('.crm-app-content');
+    const crmCards = document.querySelectorAll('.crm-details-card');
+
+    crmTabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabName = btn.getAttribute('data-crm-tab');
+        crmTabs.forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Swap Content
+        crmContents.forEach(content => {
+          content.classList.remove('active');
+          if (content.id === `crm-tab-content-${tabName}`) {
+            content.classList.add('active');
+          }
+        });
+
+        // Swap Details Card
+        crmCards.forEach(card => {
+          card.classList.remove('active');
+          if (card.getAttribute('data-crm-card') === tabName) {
+            card.classList.add('active');
+            if (typeof gsap !== 'undefined') {
+              gsap.fromTo(card, { opacity: 0, x: 15 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power2.out' });
+            }
+          }
+        });
+      });
+    });
+
+    // C. Live Toast trigger overlays
+    const toastBox = document.getElementById('crm-toast-box');
+    const toastText = document.getElementById('crm-toast-text-content');
+    let toastTimeout = null;
+
+    const showToast = (message, type) => {
+      if (!toastBox) return;
+      if (toastTimeout) clearTimeout(toastTimeout);
+
+      toastBox.className = `crm-toast-overlay ${type} visible`;
+      if (toastText) toastText.textContent = message;
+
+      toastTimeout = setTimeout(() => {
+        toastBox.classList.remove('visible');
+      }, 2500);
+    };
+
+    // Log site visits click handler
+    const visitButtons = document.querySelectorAll('.log-visit-btn');
+    visitButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-toast');
+        let msg = "Site visit logged successfully!";
+        if (target === 'visit-apex') msg = "Apex Towers site visit logged! Geo-checked.";
+        if (target === 'visit-prestige') msg = "Prestige Green signoff logged! Syncing...";
+        showToast(msg, 'success');
+      });
+    });
+
+    // Checkboxes change handler
+    const taskCheckboxes = document.querySelectorAll('.crm-checkbox');
+    taskCheckboxes.forEach(chk => {
+      chk.addEventListener('change', () => {
+        if (chk.checked) {
+          const target = chk.getAttribute('data-toast');
+          let msg = "Task marked as complete!";
+          if (target === 'task-wa') msg = "Budget sent! Activity logged on WhatsApp channel.";
+          if (target === 'task-call') msg = "Call activity logged! Status: Completed.";
+          if (target === 'task-mail') msg = "CFO Contract email logged! Status: Signed.";
+          showToast(msg, 'success');
+        }
+      });
+    });
+
+    // Toast triggers buttons
+    const triggerButtons = document.querySelectorAll('.toast-trigger-btn');
+    triggerButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const type = btn.getAttribute('data-toast-type');
+        let msg = "Alert triggered!";
+        if (type === 'success') msg = "Success: Location verified! geo-pin saved.";
+        if (type === 'warning') msg = "Warning: Weak network detected. Logged offline.";
+        if (type === 'error') msg = "Error: Authentication expired. Re-log required.";
+        showToast(msg, type);
+      });
+    });
+  };
+
+  initCendrolCRMCaseStudy();
+
+  // ==========================================================================
   // 10. INTERACTIVE UPSC COMPANION CASE STUDY SYSTEM
   // ==========================================================================
   const initUPSCCompanion = () => {

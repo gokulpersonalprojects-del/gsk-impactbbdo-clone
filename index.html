@@ -1621,7 +1621,7 @@
 
 
     <!-- ==========================================================================
-         CASE STUDY: AUTHENTICATION FLOW REDESIGN
+         CASE STUDY: CENDROL B2B CRM REDESIGN
          ========================================================================== -->
     <section class="sub-page-section case-study-section" id="section-case-auth">
       <!-- Section Back Button and Outline Heading -->
@@ -1634,8 +1634,8 @@
           Back to Home
         </a>
         <div class="about-hero-title">
-          <h2 class="fade-up">DESIGNERGRAM</h2>
-          <h3 class="fade-up">SOCIAL UX & CREATIVE SPACE</h3>
+          <h2 class="fade-up">CENDROL CRM</h2>
+          <h3 class="fade-up">MOBILE FIELD CRM / SALES & SITE TEAMS</h3>
         </div>
       </div>
 
@@ -1644,91 +1644,258 @@
         <div class="case-metadata-grid fade-up">
           <div class="meta-item">
             <span class="meta-label">MY ROLE</span>
-            <span class="meta-value">Product Design Lead — UX Architecture, Interface Systems, Prototyping</span>
+            <span class="meta-value">Solo Product Designer — UX Research, Wireframing, Brand System Integration, Prototyping</span>
           </div>
           <div class="meta-item">
-            <span class="meta-label">TEAM</span>
-            <span class="meta-value">Shilpa (QA), Sharan (Visual Design), Gokul S Kaimal (UX)</span>
+            <span class="meta-label">DOMAIN</span>
+            <span class="meta-value">B2B CRM · Construction Tech · Mobile Workforce</span>
           </div>
           <div class="meta-item">
             <span class="meta-label">DURATION</span>
-            <span class="meta-value">April - May, 2024</span>
+            <span class="meta-value">2024 · 4-Week Sprint</span>
           </div>
           <div class="meta-item">
             <span class="meta-label">OVERVIEW</span>
-            <span class="meta-value">A new-dimension social space tailored for designers to showcase journeys, snippets, and creative dimensions.</span>
+            <span class="meta-value">Redesigning Cendrol's stationary CRM into an on-the-go mobile assistant for field representatives and site engineers to capture data in real time.</span>
           </div>
         </div>
 
-        <!-- Giant Full-Bleed Mockup Banner -->
-        <div class="case-banner-wrapper fade-up">
-          <img src="designergram.jpg" alt="Designergram Case Study Banner" class="case-banner-image">
-          <div class="case-banner-overlay"></div>
+        <!-- Dynamic Mode Switcher (Pill Style) -->
+        <div class="case-mode-switcher fade-up" id="auth-mode-switcher">
+          <div class="switcher-bg-slider auth-slider"></div>
+          <button class="case-mode-btn auth-mode-btn active" data-mode="auth-tour">🎯 INTERACTIVE TOUR</button>
+          <button class="case-mode-btn auth-mode-btn" data-mode="auth-deep">📖 DEEP DIVE / DETAILS</button>
         </div>
 
-        <!-- Two-Column Editorial Details -->
-        <div class="case-content-grid">
-          
-          <div class="case-section-row fade-up">
-            <div class="case-col-left">
-              <h2>01 / THE CHALLENGE</h2>
-            </div>
-            <div class="case-col-right">
-              <p class="lead-text">Designergram was born from a simple insight: designers and creatives deserve a beautiful, mobile-first space that is not just a static grid, but a living diary of their design journey. A space where we can share brief snippets, follow trending layouts, and interact in a high-fidelity visual dimension.</p>
-              <p>Turn your design journey into a new dimension. Dive into a realm of endless possibilities, where your imagination knows no bounds.</p>
-            </div>
-          </div>
+        <!-- Case Study Content Panes -->
+        <div class="case-panes-wrapper">
 
-          <div class="case-section-row fade-up">
-            <div class="case-col-left">
-              <h2>02 / OBJECTIVES</h2>
+          <!-- ==========================================
+               PANE 1: INTERACTIVE TOUR (DEFAULT)
+               ========================================== -->
+          <div class="case-pane active" id="auth-pane-tour">
+            <!-- Quick Intro -->
+            <div class="tour-intro-block fade-up">
+              <p class="lead-text">Stationary enterprise software fails on construction sites. With 70% of Cendrol's workforce operating in the field, this mobile redesign simplifies complex client tracking and follow-up logging into lightweight, one-tap mobile flows built directly into the site environment.</p>
+              <div class="highlight-quote">
+                "Our sales and site teams need CRM access in the field, not just in the office."
+              </div>
             </div>
-            <div class="case-col-right">
-              <div class="features-block-grid">
-                <div class="feature-card">
-                  <h4>🚀 Easy Onboarding</h4>
-                  <p>Simplify the process, reduce steps, and remove all points of user friction.</p>
+
+            <!-- Widget 1: Interactive B2B CRM Simulator -->
+            <div class="widget-section fade-up">
+              <div class="widget-header">
+                <h3>01 / CRM FIELD INTERFACE SIMULATOR</h3>
+                <p>Select a quick-action tab above the phone to simulate how field workflows are executed directly on the site.</p>
+              </div>
+
+              <div class="hotspot-explorer-grid">
+                <!-- Left Side: Interactive Phone -->
+                <div class="explorer-device-col">
+                  <!-- Control Tabs above device -->
+                  <div class="crm-control-tabs">
+                    <button class="crm-tab-btn active" data-crm-tab="meetings">📅 Meetings</button>
+                    <button class="crm-tab-btn" data-crm-tab="tasks">📋 Tasks</button>
+                    <button class="crm-tab-btn" data-crm-tab="toasts">🔔 Alerts</button>
+                  </div>
+
+                  <div class="device-phone-shell crm-phone-shell">
+                    <div class="device-notch"></div>
+                    <div class="device-screen-screen">
+                      <!-- Live B2B CRM Interface Container -->
+                      <div class="crm-mobile-interface" id="crm-simulator-screen">
+                        <!-- Top Header -->
+                        <div class="crm-app-header">
+                          <span class="crm-logo">CENDROL CRM</span>
+                          <span class="crm-network-dot"></span>
+                        </div>
+
+                        <!-- Content Area: Meetings Tab (Active by Default) -->
+                        <div class="crm-app-content active" id="crm-tab-content-meetings">
+                          <div class="crm-section-title">Today's Visits</div>
+                          
+                          <div class="crm-item-card">
+                            <div class="crm-card-time">09:30 AM</div>
+                            <div class="crm-card-title">Apex Towers Site Visit</div>
+                            <div class="crm-card-meta">Client: Rajesh Kumar · HSR Layout</div>
+                            <button class="crm-btn-primary log-visit-btn" data-toast="visit-apex">Log Site Visit</button>
+                          </div>
+
+                          <div class="crm-item-card">
+                            <div class="crm-card-time">02:15 PM</div>
+                            <div class="crm-card-title">Prestige Green Mockup Signoff</div>
+                            <div class="crm-card-meta">Client: Anil Mehta · Whitefield</div>
+                            <button class="crm-btn-primary log-visit-btn" data-toast="visit-prestige">Log Site Visit</button>
+                          </div>
+                        </div>
+
+                        <!-- Content Area: Tasks Tab -->
+                        <div class="crm-app-content" id="crm-tab-content-tasks">
+                          <div class="crm-section-title">Pending Follow-Ups</div>
+
+                          <div class="crm-task-item">
+                            <input type="checkbox" id="task-chk-1" class="crm-checkbox" data-toast="task-wa">
+                            <label for="task-chk-1" class="crm-task-label">
+                              <span class="task-title">WhatsApp budget sheet to Anil</span>
+                              <span class="task-tag whatsapp">WhatsApp</span>
+                            </label>
+                          </div>
+
+                          <div class="crm-task-item">
+                            <input type="checkbox" id="task-chk-2" class="crm-checkbox" data-toast="task-call">
+                            <label for="task-chk-2" class="crm-task-label">
+                              <span class="task-title">Call contractor on progress</span>
+                              <span class="task-tag call">Phone Call</span>
+                            </label>
+                          </div>
+
+                          <div class="crm-task-item">
+                            <input type="checkbox" id="task-chk-3" class="crm-checkbox" data-toast="task-mail">
+                            <label for="task-chk-3" class="crm-task-label">
+                              <span class="task-title">Email signed contract to CFO</span>
+                              <span class="task-tag email">Email</span>
+                            </label>
+                          </div>
+                        </div>
+
+                        <!-- Content Area: Alerts Tab -->
+                        <div class="crm-app-content" id="crm-tab-content-toasts">
+                          <div class="crm-section-title">Trigger Live Brand Toasts</div>
+                          <p class="crm-content-desc">Test Cendrol's on-site priority feedback overlays:</p>
+                          <div class="crm-toast-triggers">
+                            <button class="toast-trigger-btn success" data-toast-type="success">Trigger Success Toast</button>
+                            <button class="toast-trigger-btn warning" data-toast-type="warning">Trigger Warning Toast</button>
+                            <button class="toast-trigger-btn error" data-toast-type="error">Trigger Error Toast</button>
+                          </div>
+                        </div>
+
+                        <!-- App Toast Container overlay -->
+                        <div class="crm-toast-overlay" id="crm-toast-box">
+                          <div class="crm-toast-icon"></div>
+                          <div class="crm-toast-text" id="crm-toast-text-content">Toast Message</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="feature-card">
-                  <h4>✨ Dash of Fun</h4>
-                  <p>Introduce micro-interactions that make users feel like they're engaging with something smart and playful.</p>
-                </div>
-                <div class="feature-card">
-                  <h4>🏄 Streamline Flow</h4>
-                  <p>Make authentication as smooth as possible – fast, efficient, and secure without roadblocks.</p>
-                </div>
-                <div class="feature-card">
-                  <h4>🔒 Solid Security</h4>
-                  <p>Accomplish all the above without compromising the app's rigorous security compliance.</p>
+
+                <!-- Right Side: Details Cards -->
+                <div class="explorer-details-col">
+                  <div class="hotspot-details-card crm-details-card active" data-crm-card="meetings">
+                    <h4>01 / Meeting & Visit Logging</h4>
+                    <p class="highlight-tag">NO MORE FORGOTTEN VISITS</p>
+                    <p>Site representatives can log visits in 2 seconds directly at the construction location. The app records verified geo-coordinates to log site presence instantly and reduces data backlog by 80%.</p>
+                    <div class="metric-mini-row">
+                      <div class="metric-mini"><span>90%</span><span>Visit Log Rate</span></div>
+                      <div class="metric-mini"><span>2s</span><span>One-Tap Log</span></div>
+                    </div>
+                  </div>
+
+                  <div class="hotspot-details-card crm-details-card" data-crm-card="tasks">
+                    <h4>02 / Quick-Action Tasking</h4>
+                    <p class="highlight-tag">ON-THE-GO TASK TRACKING</p>
+                    <p>Organize follow-up tasks by channel (WhatsApp, Call, Email). Checking off a task automatically logs the corresponding activity update in Cendrol's central dashboard database.</p>
+                    <div class="metric-mini-row">
+                      <div class="metric-mini"><span>-73%</span><span>Task Processing Time</span></div>
+                      <div class="metric-mini"><span>Auto</span><span>Activity Logging</span></div>
+                    </div>
+                  </div>
+
+                  <div class="hotspot-details-card crm-details-card" data-crm-card="toasts">
+                    <h4>03 / Brand Toast Notifications</h4>
+                    <p class="highlight-tag">CLARITY ON THE SITE</p>
+                    <p>Priority-based, high-legibility toast overlays designed natively to support field users in noisy, distracting construction environments. Ensures action visibility under real-world site constraints.</p>
+                    <div class="metric-mini-row">
+                      <div class="metric-mini"><span>3 Classes</span><span>Success, Warning, Error</span></div>
+                      <div class="metric-mini"><span>Zero</span><span>Field Confusion</span></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="case-section-row fade-up">
-            <div class="case-col-left">
-              <h2>03 / PROCESS & DESIGN</h2>
-            </div>
-            <div class="case-col-right">
-              <p><strong>Wireframing and Prototyping:</strong> Started with low-fi wireframes to lay out the blueprint for the onboarding paths. After a few iterations, I created a high-fidelity prototype that was incredibly smooth.</p>
-              <p><strong>UI Redesign:</strong> With wireframes validated, I dove into UI design, making sure every visual element was polished and perfectly aligned with the app's modern aesthetic.</p>
-              <p><strong>Micro-interactions:</strong> Added mini-animations – things like interactive progress bars, loading indicators, and button feedback – so the app would feel more responsive. No more lifeless forms!</p>
-            </div>
-          </div>
+          </div><!-- /auth-pane-tour -->
 
-          <div class="case-section-row fade-up">
-            <div class="case-col-left">
-              <h2>04 / REFLECTIONS</h2>
+          <!-- ==========================================
+               PANE 2: DEEP DIVE / DETAILS
+               ========================================== -->
+          <div class="case-pane" id="auth-pane-deep">
+            <!-- Giant Full-Bleed Mockup Banner -->
+            <div class="case-banner-wrapper fade-up">
+              <img src="designergram.jpg" alt="Cendrol B2B CRM Case Study Banner" class="case-banner-image">
+              <div class="case-banner-overlay"></div>
             </div>
-            <div class="case-col-right">
-              <p><strong>Efficiency + Engagement:</strong> Security doesn’t have to feel like a chore. A smooth, engaging experience can be just as secure.</p>
-              <p><strong>Micro-interactions = Magic:</strong> Small details make a big impact. Users are much happier when they get that little bit of positive feedback!</p>
-              <p><strong>UX Iteration is Key:</strong> The testing phase was vital – getting user feedback early and often kept the project on track.</p>
-            </div>
-          </div>
 
-        </div>
-      </div>
+            <!-- Two-Column Editorial Details -->
+            <div class="case-content-grid">
+              
+              <div class="case-section-row fade-up">
+                <div class="case-col-left">
+                  <h2>01 / THE CHALLENGE</h2>
+                </div>
+                <div class="case-col-right">
+                  <p class="lead-text">Standard corporate software operates under the assumption of a stationary desktop workspace. For Cendrol's sales representatives and site engineers, 60% to 80% of their workday is spent on active construction zones.</p>
+                  <p>Forcing field professionals to log client meetings, updates, and site parameters via complex desktop dashboards caused massive friction. 70% of reps updated logs hours late or completely forgot, leading to severe data gaps and miscommunication between teams.</p>
+                </div>
+              </div>
+
+              <div class="case-section-row fade-up">
+                <div class="case-col-left">
+                  <h2>02 / KEY USER INSIGHTS</h2>
+                </div>
+                <div class="case-col-right">
+                  <div class="features-block-grid">
+                    <div class="feature-card">
+                      <h4>🚧 Low Accessibility</h4>
+                      <p>Reps spend most of their time in transit or on active construction sites without stationary setups.</p>
+                    </div>
+                    <div class="feature-card">
+                      <h4>🕒 Delayed Data Entry</h4>
+                      <p>7 out of 10 representatives admitted they update the CRM only after returning to the office.</p>
+                    </div>
+                    <div class="feature-card">
+                      <h4>🤝 WhatsApp Fragmentation</h4>
+                      <p>Teams relied on chaotic chat groups to share updates because the CRM wasn't accessible on the go.</p>
+                    </div>
+                    <div class="feature-card">
+                      <h4>⚡ One-Tap Focus</h4>
+                      <p>90% of field users expressed a critical need for quick, single-tap feedback workflows.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="case-section-row fade-up">
+                <div class="case-col-left">
+                  <h2>03 / THE DRAFT REJECTION</h2>
+                </div>
+                <div class="case-col-right">
+                  <p><strong>First Wireframe - Not Approved:</strong> The initial low-fidelity prototype focused purely on speed but ignored brand integrity. During reviews, stakeholders flagged it for deviating from Cendrol's existing app ecosystem.</p>
+                  <div class="highlight-quote">
+                    "This feels like a completely different product from our existing tools — it should feel like one ecosystem."
+                  </div>
+                  <p><strong>Moving Forward:</strong> I rebuilt the visual guidelines to align typography, margins, color weight, and spacing with Cendrol's core guidelines, creating a seamless, unified, and zero-learning-curve visual system.</p>
+                </div>
+              </div>
+
+              <div class="case-section-row fade-up">
+                <div class="case-col-left">
+                  <h2>04 / POST-LAUNCH IMPACT</h2>
+                </div>
+                <div class="case-col-right">
+                  <div class="metric-block-row">
+                    <div class="metric-large"><span>+50%</span><span>CRM Usage in Month 1</span></div>
+                    <div class="metric-large"><span>-73%</span><span>Task Workflow Time</span></div>
+                    <div class="metric-large"><span>High</span><span>On-Site Adoption</span></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- /auth-pane-deep -->
+
+        </div><!-- /case-panes-wrapper -->
+      </div><!-- /case-study-container -->
     </section>
 
     <!-- ==========================================================================
