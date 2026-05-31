@@ -66,8 +66,8 @@ const initInteractionEngine = () => {
   // --- HERO VIDEO CASCADING FAIL-SAFE ---
   const heroVideo = document.querySelector('.video-banner');
   if (heroVideo) {
-    const localUrl = "hero_video.mp4";
-    const primaryUrl = "https://drive.google.com/uc?export=download&id=1oIANK-efq_hxiQvC6yQ99pvkZdmzB9Tn";
+    const localUrl = "https://drive.google.com/uc?export=download&id=1oIANK-efq_hxiQvC6yQ99pvkZdmzB9Tn";
+    const primaryUrl = "hero_video.mp4";
     const fallbackUrl = "https://impactbbdo.com/wp-content/uploads/2025/06/Intro-Video_1440x734_CLEAN_NO-LOGO.mp4";
     
     let currentSourceIndex = 0; // 0: localUrl, 1: primaryUrl, 2: fallbackUrl
